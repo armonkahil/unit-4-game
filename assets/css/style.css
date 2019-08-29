@@ -6,11 +6,15 @@ body {
 .card {
 	width: 100%;
 	max-width: 200px;
+	
 	border: 5px solid green;
 	display: block;
+	float: left;
 }
 img {
 	padding: 10px;
+	height: 180px;
+	width: 180px;
 }
 p {
 	margin: auto;

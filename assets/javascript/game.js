@@ -47,11 +47,27 @@ $(document).ready(function(){
       cardImg: "../assets/images/Emperor_RotJ.png"
     };
 
-function SetGame () {
-  $("#playerBoard").append('<div class ="card text-center">'+ luke.name + "</div>");
+function SetGame (player) {
+  var newDiv = $("<div>");
+  var newIMG = $("<img>");
+  var newPname = $("<p>");
+  var newPhealth = $("<p>");
+  var pl = (''"#" + player.name "');
+  newPname = player.name;
+  newPhealth = player.health;
+  newDiv.attr("id", player.name);
+  newIMG.attr("src", player.cardImg);
+  $("#playerBoard").append(newDiv);
+  $("#playerBoard").append(newPname);
+  
+
+  
+  newDiv.attr("class", "card text-center");
+  $("#playerBoard").append(newIMG);
+  $("#playerBoard").append(newPhealth);
 }
 
-SetGame();
+SetGame(luke);
 
 
 
