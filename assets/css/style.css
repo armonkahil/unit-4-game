@@ -1,0 +1,17 @@
+body {
+	background-image: url('https://wallpapersite.com/images/pages/pic_h/313.jpg');
+	background-repeat: no-repeat;
+}
+
+.card {
+	width: 100%;
+	max-width: 200px;
+	border: 5px solid green;
+	display: block;
+}
+img {
+	padding: 10px;
+}
+p {
+	margin: auto;
+}
