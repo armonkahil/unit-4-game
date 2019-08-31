@@ -12,10 +12,16 @@ body {
 	float: left;
 }
 img {
-	padding: 10px;
-	height: 180px;
-	width: 180px;
+	padding: 5px 10px;
+	/* height: 180px;
+	width: 180px; */
 }
 p {
 	margin: auto;
+}
+#enemiesSelect{
+	clear: both;
+}
+h1 {
+	clear:both;
 }
