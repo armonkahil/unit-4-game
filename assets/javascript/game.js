@@ -1,15 +1,13 @@
-
 $(document).ready(function() {
     // $("*").hide();
-    
-
     var obi = {
       name: "Obi-Wan",
       nickname: "Obi",
       health: 120,
       attackPW: 8,
       counterPW: 8,
-      cardImg: "../assets/images/Obi1.jpg"
+      cardImg: "../assets/images/Obi1.jpg",
+      playAvail: true
     };
 
     var luke = {
@@ -18,7 +16,8 @@ $(document).ready(function() {
       health: 100,
       attackPW: 5,
       counterPW: 5,
-      cardImg: "../assets/images/Luke1.jpg"
+      cardImg: "../assets/images/Luke1.jpg",
+      playAvail: true
     };
 
     var vader = {
@@ -27,7 +26,8 @@ $(document).ready(function() {
       health: 150,
       attackPW: 20,
       counterPW: 20,
-      cardImg: "../assets/images/Vader1.jpg"
+      cardImg: "../assets/images/Vader1.jpg",
+      playAvail: true
     };
 
     var sidious = {
@@ -36,12 +36,15 @@ $(document).ready(function() {
       health: 180,
       attackPW: 25,
       counterPW: 25,
-      cardImg: "../assets/images/Sith-Primer-Sidious.jpg"
+      cardImg: "../assets/images/Sith-Primer-Sidious.jpg",
+      playAvail: true
     };
 
 
 var players = [obi, luke, vader, sidious];
+
 playersLeft = [];
+
 // console.log(playersLeft);
 // var dummyOBJ = {
 //   name: "Savage Oppress",
@@ -52,72 +55,73 @@ playersLeft = [];
 //   cardImg: "../assets/images/savage.jpg"
 // };
 
-var dummyOBJ
+
+
+var dummyOBJ=[];
 
 
 function buildChar (charID){
  
   console.log("This is the value buildChar got " + charID);
-  for (i=0; i < players.length; i++){
-    if (charID === players[i].nickname) {
-      dummyOBJ = players[i];
-      
-    } else {
-
-      console.log(players[i] + " is being added to playersLeft.")
-      playersLeft.push(players[i]);
-      console.log(playersLeft);
-      
-    }
-    setting("#userAttacks", dummyOBJ);  
-    setting("#enemiesSelect", playersLeft);
-      
-  
-      console.log("This is who's left" + playersLeft);
-      
-     
+  for (i=0; i < players.length; i++) {
+    if (charID === players[i].nickname && players[i].playAvail) {
+        dummyOBJ.push(players[i]);
+        players.splice(i,1);  //<-----I created a global dummy object "dummyOBJ" to r 
+        // players[i].playAvail = false;
+        } 
   }
+  
+  // return dummyOBJ.nickname;
+   //these functions are meant to update the board
+    //takes chosen player and sends it to be displayed in the user attack area
+    setting("#userAttacks", dummyOBJ);  
+    //takes the remaining players to display in the players left section
+    reset("#enemiesSelect", players);
+    console.log("This is who's left" + playersLeft);
 }
  //sets the board of players
 function reset(target) {
   $(target).children().remove();
 
    for (var i = 0; i < players.length; i++) { 
-            $(target).append("<div />");
-            $(target + " div:last-child").addClass("card text-center yourChar");
-            $(target + " div:last-child").attr("id", players[i].nickname);
-            $(target + " div:last-child").append("<p>" + players[i].name + "</p>");
-            $(target + " div:last-child").append("<img />");
-            $(target + " img:last-child").attr("class", "rounded img-fluid");
-            $(target + " img:last-child").attr("src", players[i].cardImg);
-            $(target + " img:last-child").attr("width", "160");
-            $(target + " div:last-child").append("<p>" + players[i].health + "</p>");
-            $(target + " idv:last-child").append();
-    }
+            if (players[i].playAvail) {
+             $(target).append("<div />");
+              $(target + " div:last-child").addClass("card text-center yourChar");
+              $(target + " div:last-child").attr("id", players[i].nickname);
+              $(target + " div:last-child").append("<p>" + players[i].name + "</p>");
+              $(target + " div:last-child").append("<img/>");
+              $(target + " img:last-child").attr("class", "rounded img-fluid");
+              $(target + " img:last-child").attr("src", players[i].cardImg);
+              $(target + " img:last-child").attr("width", "160");
+              $(target + " div:last-child").append("<p>" + players[i].health + "</p>");
+              $(target + " div:last-child").append();
+            }
   }
+}
 
   
-
-function setting (target,array1) {
-  var selection = array1;
+// This is where i run into my problem....the player array of objects is now undefined.
+function setting (target,selection) {
+ 
   $(target).children().remove();
      console.log("this is the target div ", target);
      console.log("this is the array received ", selection);
      
      for (var i=0; i < selection.length; i++) {  
-            
-          $(target).append("<div />");
-          $(target + " div:last-child").addClass("card text-center yourChar");
-          $(target + " div:last-child").attr("id", selection[i].nickname);
-          $(target + " div:last-child").append("<p>" + selection[i].name + "</p>");
-          $(target + " div:last-child").append("<img />");
-          $(target + " img:last-child").attr("class", "rounded img-fluid");
-          $(target + " img:last-child").attr("src", selection[i].cardImg);
-          $(target + " img:last-child").attr("width", "160");
-          $(target + " div:last-child").append("<p>" + selection[i].health + "</p>");
-          $(target + " idv:last-child").append();
-  }
-  }
+            if (selection[i].playAvail){
+                $(target).append("<div/>");
+                $(target + " div:last-child").addClass("card text-center yourChar");
+                $(target + " div:last-child").attr("id", selection[i].nickname);
+                $(target + " div:last-child").append("<p>" + selection[i].name + "</p>");
+                $(target + " div:last-child").append("<img/>");
+                $(target + " img:last-child").attr("class", "rounded img-fluid");
+                $(target + " img:last-child").attr("src", selection[i].cardImg);
+                $(target + " img:last-child").attr("width", "160");
+                $(target + " div:last-child").append("<p>" + selection[i].health + "</p>");
+                $(target + " div:last-child").append();
+              }
+      }
+}
 
 
 //TODO: I need a function that will take the id and return a variable equal to the character selected.
@@ -129,16 +133,19 @@ function setting (target,array1) {
 
 
 function CharSelect () {
-  $(".yourChar").on('click', function() {
-        console.log("i clicked " + this.id);
-        
-      setting("#playerSelect",buildChar(this.id));
-  });
+$(".yourChar").on('click', function() {
+     buildChar(this.id);
+   setting("#playerSelect",dummyOBJ);
+});
 }
 
+//---------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------
+//sets up initial divs displaying the players
  reset("#playerSelect");
- reset("#enemiesSelect");
+//  reset("#enemiesSelect"); 
 
+//starts the game
  CharSelect()
 
   
