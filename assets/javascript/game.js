@@ -59,7 +59,9 @@ $(document).ready(function () {
 	var secondPlayer = [];
 	//conditions for players selected
 	var player1Confirmed = false;
-	var player2Confirmed = false;
+  var player2Confirmed = false;
+  var Stagecomplete = false;
+
 
 	// =============================================================================
 	// console reporting function
@@ -163,13 +165,15 @@ $(document).ready(function () {
 				updateDisplay("#player2Select", p2);
 			} else if (p1[0].health < 0 && p2[0].health > 0) {
 				alert("You died game over");
-				Game();
+        location.reload;
 			} else if (p1[0].health > 0 && p2[0].health < 0) {
-				player2Confirmed = false;
-				$("#player2Select")
-					.children()
-					.remove();
-				alert("you won, on to the next stage");
+        player2Confirmed = false;
+        firstPlayer[0] = p1[0];
+        secondPlayer.pop();
+				$("#player2Select").children().remove();
+        alert("you won, on to the next stage");
+        Stagecomplete = true;
+        charSelect()
 			}
 		});
 	}
@@ -211,12 +215,11 @@ $(document).ready(function () {
 	function charSelect() {
 		report("charSelect");
 		$(".yourChar").on("click", function () {
-			//if first player hasnt been selected yet...
+			//if first player hasn't been selected yet...
 			if (!player1Confirmed) {
 				console.log("picked first player");
 				player1Confirmed = true;
 				buildChar(this.id);
-				// setting("#playerselect",firstPlayer);
 				//if first has been selected and second player has not been selected.
 			} else if (!player2Confirmed) {
 				console.log("picked second player");
@@ -241,8 +244,9 @@ $(document).ready(function () {
 		//starts the
 		// for player 1
 		charSelect();
-		Attack(firstPlayer, secondPlayer);
-	}
+    Attack(firstPlayer, secondPlayer)
+		
+    }
 
 	Game();
 });
