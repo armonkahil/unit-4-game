@@ -76,8 +76,8 @@ $(document).ready(function() {
   // display functions
   // ===========================================================================
   //updates display
-  function setting(target, selection) {
-    report("setting");
+  function updateDisplay(target, selection) {
+    report("updating display");
     $(target)
       .children()
       .remove();
@@ -85,7 +85,6 @@ $(document).ready(function() {
     console.log("this is the array received ", selection);
 
     for (var i = 0; i < selection.length; i++) {
-      if (selection[i].playAvail) {
         $(target).append("<div/>");
         $(target + " div:last-child").addClass("card text-center yourChar");
         $(target + " div:last-child").attr("id", selection[i].nickname);
@@ -101,70 +100,23 @@ $(document).ready(function() {
         );
         $(target + " div:last-child").append();
       }
-    }
+    
   }
 
+  
   //sets the board of playersArray
-  function update(target) {
-    report("resetGame");
-    //sets up game display on first run. Second run resets game
-    console.log("this is the target received", target);
-    console.log("removing children from id", target);
-    $(target)
-      .children()
-      .remove();
-    console.log(
-      "running resetGame loop for " + playersArray.length + " times."
-    );
-    for (var i = 0; i < playersArray.length; i++) {
-      if (playersArray[i].playAvail) {
-        $(target).append("<div />");
-        $(target + " div:last-child").addClass("card text-center yourChar");
-        $(target + " div:last-child").attr("id", playersArray[i].nickname);
-        $(target + " div:last-child").append(
-          "<p>" + playersArray[i].name + "</p>"
-        );
-        $(target + " div:last-child").append("<img/>");
-        $(target + " img:last-child").attr("class", "rounded img-fluid");
-        $(target + " img:last-child").attr("src", playersArray[i].cardImg);
-        $(target + " img:last-child").attr("width", "160");
-        $(target + " div:last-child").append(
-          "<p>" + playersArray[i].health + "</p>"
-        );
-        $(target + " div:last-child").append();
-      }
-    }
-  }
-
-  //sets the board of playersArray
-  function resetGame() {
-    var resetTarget = "#playerSelect";
-    $(resetTarget)
-      .children()
-      .remove();
-
+  function resetGame(resetTarget) {
+    //resets player picks
+    player1Confirmed = false;
+    player2Confirmed = false;
+    $(resetTarget).children().remove();
     for (var i = 0; i < playersArray.length; i++) {
       //resets playersArray to original stats.
       playersArray[i] = staticArray[i];
-      $(resetTarget).append("<div />");
-      $(resetTarget + " div:last-child").addClass("card text-center yourChar");
-      $(resetTarget + " div:last-child").attr("id", playersArray[i].nickname);
-      $(resetTarget + " div:last-child").append(
-        "<p>" + playersArray[i].name + "</p>"
-      );
-      $(resetTarget + " div:last-child").append("<img/>");
-      $(resetTarget + " img:last-child").attr("class", "rounded img-fluid");
-      $(resetTarget + " img:last-child").attr("src", playersArray[i].cardImg);
-      $(resetTarget + " img:last-child").attr("width", "160");
-      $(resetTarget + " div:last-child").append(
-        "<p>" + playersArray[i].health + "</p>"
-      );
-      $(resetTarget + " div:last-child").append();
     }
     console.log("this is the static array ", staticArray);
     console.log("this is the players array ", playersArray);
-    player1Confirmed = false;
-    player2Confirmed = false;
+    updateDisplay(resetTarget,playersArray)
   }
 
 
@@ -192,7 +144,9 @@ $(document).ready(function() {
                       }  
 
               }
-              setting("#userAttacks",firstplayer)
+              updateDisplay("#player1Select",firstPlayer)
+              updateDisplay("#enemiesSelect",playersArray)
+              charSelect()
        
       } else if (player1Confirmed && player2Confirmed) {
         //if player 1 has been confirmed and player 2 has been confirmed
@@ -204,20 +158,11 @@ $(document).ready(function() {
           }  
 
         }
-        setting(secondPlayer)
+        updateDisplay("#player2Select",secondPlayer)
+        updateDisplay("#enemiesSelect",playersArray)
+        
       }
-  }
-
-    // return dummyOBJ.nickname;
-    //these functions are meant to update the board
-    //takes chosen player and sends it to be displayed in the user attack area
-    setting("#userAttacks", dummyOBJ);
-    //takes the remaining playersArray to display in the playersArray left section
-    resetGame("#enemiesSelect", playersArray);
-    console.log("This is who's left" + playersArrayLeft);
-  
-
-
+    }
 
   function charSelect() {
     report("charSelect");
@@ -225,8 +170,8 @@ $(document).ready(function() {
       //if first player hasnt been selected yet...
       if (!player1Confirmed) {
         console.log("picked first player");
-        buildChar(this.id);
         player1Confirmed = true;
+        buildChar(this.id);
         // setting("#playerselect",firstPlayer);
         //if first has been selected and second player has not been selected.
       } else if (!player2Confirmed) {
@@ -247,10 +192,10 @@ $(document).ready(function() {
   // =============================================================================
 
   function Game() {
-    resetGame("#playersArrayelect");
+    resetGame("#player1Select");
     //  reset("#enemiesSelect");
-
-    //starts the game
+    //starts the 
+    // for player 1
     charSelect();
   }
 
