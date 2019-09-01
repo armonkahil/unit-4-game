@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
     <title>Star Wars RPG</title>
     <linK rel="stylesheet" type="text/css" href="assets/css/reset.css" />
     <link
@@ -16,35 +15,39 @@
   </head>
   <body>
     <div class = "container">
-        
-        <heading class="container-fluid bg-transparent text-right">
-            <h1>Star Wars RPG!</h1>
-            <!-- <audio controls autoplay loop>
-                  <source src = "assets/audio/Star Wars Theme Song By John Williams.ogg" type="audio/ogg">
-            </audio> -->
-        </heading>
-        <div>
-        <div id="playerBoard"></div>
-            <div id = "playerSelect"></div>
-            <h1>Your Character</h1>
-        
-      <div id="enemiesSelect"></div>
-            <h1>Enemies Available to Attack</h1>
-      
-      <div id="fightSection">
-            <h1>Fight Section</h1>  
-            <div id="userAttacks"></div>
-            <div id="enemyAttacks"></div>
+      <div class="container-fluid bg-transparent text-right">
+        <h1>Star Wars RPG!</h1>
+        <!-- <audio controls autoplay loop><source src = "assets/audio/Star Wars Theme Song By John Williams.ogg" type="audio/ogg"></audio> -->
       </div>
       <div>
-            <button type="button" class="btn btn-secondary">Attack</button>
+        <div id = "player1Select">
+          <!-- players are loaded here when game starts -->
+          <!-- first player is staged here after being selected -->
+        </div>
+        <h1>Your Character</h1>
       </div>
-      <div id="defenderArea">
-            <h1>Defender</h1>
-      
-    
+      <div>
+        <div id="enemiesSelect">
+          <!-- players left to select are staged here -->
+        </div>
+        <h1>Enemies Available to Attack</h1>
       </div>
-    </main>             
+      <div>
+        <!-- section for attack button  -->
+        <div id="fightSection">
+          <h1>Fight Section</h1>
+          <button type="button" class="btn btn-secondary">Attack</button>
+        </div>
+      </div>
+      <div>
+        <!-- section where selected defender will be staged -->
+        <div id="player2Select"></div>
+        <h1>Defender</h1>
+      </div>
+      <div>
+        <!-- section for winner results       -->
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -60,6 +63,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="assets/javascript/game.js"></script>    
+    <script src="assets/javascript/game.js"></script>
   </body>
 </html>
