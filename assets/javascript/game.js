@@ -77,7 +77,7 @@ $(document).ready(function() {
   // display functions
   // ===========================================================================
   //updates display
-  function updateDisplay(target, selection) {
+    function updateDisplay(target, selection) {
     report("updating display");
     $(target)
       .children()
@@ -98,7 +98,8 @@ $(document).ready(function() {
         "<p>" + selection[i].health + "</p>"
       );
       $(target + " div:last-child").append();
-    }
+	}
+
   }
 
   //sets the board of playersArray

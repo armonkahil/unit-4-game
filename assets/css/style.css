@@ -3,15 +3,28 @@ body {
 	background-repeat: no-repeat;
 }
 
+#player1Select div {
+	border: 5px solid green;
+}
+
+#enemiesSelect div {
+	border: 5px solid black;
+	background-color: red;
+}
+
+#player2Select div {
+	border: 5px solid red;
+	background-color: black;
+	color:white;
+}
+
+
 .card {
 	width: 100%;
-	max-width: 200px;
-	
-	/* border: 5px solid green; */
+	max-width: 200px;	
 	display: block;
 	float: left;
 }
-
 
 img {
 	padding: 5px 10px;
@@ -24,6 +37,10 @@ p {
 #enemiesSelect{
 	clear: both;
 }
-h1 {
+h1,h3 {
 	clear:both;
+}
+
+#player1select .card {
+	border: 5px solid green;
 }
