@@ -1,6 +1,9 @@
 body {
-	background-image: url('https://wallpapersite.com/images/pages/pic_h/313.jpg');
+	background-image: url("/assets/images/xwing.jpg");
 	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	
 	
 }
 
@@ -21,25 +24,31 @@ body {
 
 
 .card {
-	width: 100%;
-	max-width: 200px;	
+	/* width: 100%; */
+	/* max-width: 200px;	 */
 	display: block;
 	float: left;
 }
 
 img {
-	padding: 5px 10px;
-	/* height: 180px;
+	padding: 2px 10px;
+	height: 80px; */
 	width: 180px; */
 }
 p {
 	margin: auto;
+	font-size: x-small;
+	clear: both; 
 }
 #enemiesSelect{
 	clear: both;
 	color: white;
 }
-h1,h3 {
+h1,h5 {
 	clear:both;
 }
 
+#winnerSec {
+	clear: both;
+	font-size: small;
+}

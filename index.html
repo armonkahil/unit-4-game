@@ -15,7 +15,7 @@
   </head>
   <body>
       
-    <div class = "container">
+    <div class = "container-fluid mg-auto">
       <div class="container-fluid bg-transparent text-right">
         <h1>Star Wars RPG!</h1>
         <!-- <audio controls autoplay loop><source src = "assets/audio/Star Wars Theme Song By John Williams.ogg" type="audio/ogg"></audio> -->
@@ -25,28 +25,30 @@
           <!-- players are loaded here when game starts -->
           <!-- first player is staged here after being selected -->
         </div>
-        <h3>Your Character</h3>
+        <h5>Your Character</h5>
       </div>
       <div>
         <div id="enemiesSelect">
           <!-- players left to select are staged here -->
         </div>
-        <h3>Enemies Available to Attack</h3>
+        <h5>Enemies Available to Attack</h5>
       </div>
       <div>
         <!-- section for attack button  -->
         <div id="fightSection">
-          <h3>Fight Section</h3>
+          <h5>Fight Section</h5>
           <button type="button" class="btn btn-primary">Attack</button>
         </div>
       </div>
       <div>
-        <h3>Defender</h3>
+        <h5>Defender</h5>
         <!-- section where selected defender will be staged -->
         <div id="player2Select"></div>
        
       </div>
       <div id = "winnerSec">
+        <h5 id="player1"></h5>
+        <h5 id="player2"></h5>
         <!-- section for winner results       -->
       </div>
     </div>
