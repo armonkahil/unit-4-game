@@ -9,46 +9,46 @@ $(document).ready(function() {
 	// Character stats and attributes are stored in objects.
 	// ----------------------------------------------------------------------------
 	var obi = {
-		name: "Obi-Wan",
-		nickname: "Obi",
+		name: "Lone Star",
+		nickname: "Lone",
 		health: 120,
 		baseAttack: 8,
 		attackPW: 8,
 		counterPW: 8,
-		cardImg: "./assets/images/Obi1.jpg",
+		cardImg: "/assets/images/LoneStarl.jpg",
 		playAvail: true
 	};
 
 	var luke = {
-		name: "Luke Skywalker",
-		nickname: "Luke",
+		name: "Barf",
+		nickname: "Barf",
 		health: 100,
 		baseAttack: 5,
 		attackPW: 5,
 		counterPW: 5,
-		cardImg: "./assets/images/Luke1.jpg",
+		cardImg: "./assets/images/Barf.jpg",
 		playAvail: true
 	};
 
 	var vader = {
-		name: "Darth Vader",
-		nickname: "Vader",
+		name: "The Guy",
+		nickname: "Dark",
 		health: 150,
 		baseAttack: 20,
 		attackPW: 20,
 		counterPW: 20,
-		cardImg: "./assets/images/Vader1.jpg",
+		cardImg: "./assets/images/Russ.jpg",
 		playAvail: true
 	};
 
 	var sidious = {
-		name: "Darth Sidious",
-		nickname: "Sidious",
+		name: "DarK Helmet",
+		nickname: "Dark",
 		health: 180,
 		baseAttack: 25,
 		attackPW: 25,
 		counterPW: 25,
-		cardImg: "./assets/images/Sith-Primer-Sidious.jpg",
+		cardImg: "./assets/images/Dark.jpeg",
 		playAvail: true
 	};
 	//array created to store character objects
@@ -59,7 +59,34 @@ $(document).ready(function() {
 	var secondPlayer = [];
 	//conditions for players selected
 	var player1Confirmed = false;
-	var player2Confirmed = false;
+  var player2Confirmed = false;
+  // ===========================================================================
+  // // ========================================================================
+     // // =====================================================================
+        // // ==================================================================
+           // 
+           // ==================================================================
+        // =====================================================================
+     // ========================================================================
+  // ===========================================================================
+  function animateCSS(element, animationName, callback) {
+    const node = document.querySelector(element)
+    node.classList.add('animated', animationName)
+
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName)
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+}
+
+
+
+
+
 
 	// =============================================================================
 	// console reporting function
@@ -78,21 +105,19 @@ $(document).ready(function() {
 	//updates display
 	function updateDisplay(target, selection) {
 		report("updating display");
-		$(target)
-			.children() 
-			.remove();
+		$(target).children().remove();
 		console.log("this is the target div ", target);
 		console.log("this is the array received ", selection);
 
 		for (var i = 0; i < selection.length; i++) {
 			$(target).append("<div/>");
-			$(target + " div:last-child").addClass("card text-center yourChar");
+			$(target + " div:last-child").addClass("card animated fadeIn text-center yourChar");
 			$(target + " div:last-child").attr("id", selection[i].nickname);
 			$(target + " div:last-child").append("<p>" + selection[i].name + "</p>");
 			$(target + " div:last-child").append("<img/>");
 			$(target + " img:last-child").attr("class", "rounded img-responsive");
 			$(target + " img:last-child").attr("src", selection[i].cardImg);
-			$(target + " img:last-child").attr("width", "100");
+			$(target + " img:last-child").attr("width", "130");
 			$(target + " div:last-child").append(
 				"<p>" + selection[i].health + "</p>"
 			);
@@ -121,11 +146,16 @@ $(document).ready(function() {
 	function winBanner() {
 		report("winnerBanner");
     // $("#winnerSec").children.remove();
-    $("#player1").empty();
+    
     $("#player2").empty();
-    $("#winnerSec").empty();
+    
+    
+     
+     $("#player1").text("YOU WON!!");
+   
+    // $("#winnerSec").empty();
 
-		$("#winnerSec").append("<h1>YOU WON!!!</h1>");
+		// $("#winnerSec").append("<h1>YOU WON!!!</h1>");
 	
 		
   }
@@ -147,33 +177,39 @@ $(document).ready(function() {
 	//function for pushing selected Character into dummy object array.
 	// =============================================================================
 	function Attack(p1, p2) {
-		var ID = "Attack: ";
-		var audio = new Audio("./assets/audio/Lightsaber.ogg");
+    var ID = "Attack: ";
+    var soundArray = ["./assets/audio/Lightsaber.ogg"];
+		var audio = new Audio(soundArray[0]);
 		report("Attack");
-    $("#winnerSec").empty();
+    
 		$("button").on("click", function() {
 			console.log(ID, "clicked attack");
-
+      animateCSS("button", "wobble")      
+audio.play();
 			if (!p2 === undefined || !p2.length == 0) {
-				console.log(ID, playersArray);
+        console.log(ID, playersArray);
+        
 				if (p1[0].health > 0 && p2[0].health > 0) {
 					report("Attack loop");
-					audio.play();
+					
 					console.log(ID, p1[0].health, p2[0].health);
 
-					p2[0].health -= p1[0].attackPW;
+          p2[0].health -= p1[0].attackPW;
+          updateDisplay("#player2Select", p2)
           $("#player1").text(p1[0].name + " hit " + p2[0].name + " for " + p1[0].attackPW + " damage.");
 					console.log(ID,"player 1 hits player 2 for",p1[0].attackPW,"damage. Player 2 has ",p2[0].health," left.");
 					if (p2[0].health > 0) {
             p1[0].health -= p2[0].counterPW;
+            updateDisplay("#player1Select", p1);
             $("#player2").text(p2[0].name + " counter attacked " + p1[0].name + " for " + p2[0].counterPW + " damage.");
 						console.log(ID,"player 2 hits player 1 for",p2[0].counterPW,"damage. Player 1 has ",p1[0].health," left.");
-					}
+					} else {
+            
+          }
 					console.log(ID, "player 1 has", p1[0].attackPW, " upgraded to ");
 					p1[0].attackPW += p1[0].baseAttack;
 					console.log(ID, p1[0].attackPW, " damage.");
-					updateDisplay("#player1Select", p1);
-					updateDisplay("#player2Select", p2);
+					
           
           
           if (p1[0].health <= 0) {
@@ -182,16 +218,18 @@ $(document).ready(function() {
             
 
 					} else if (p2[0].health <= 0) {
+            $("#player2Select").children().remove();  
 						player2Confirmed = false;
 						firstPlayer.splice(0, 1, p1[0]);
 						secondPlayer = [];
-
+            // updateDisplay("#player2Select",secondPlayer);
 						winBanner();
 
-						charSelect();
+            charSelect();
+          
 					}
-					updateDisplay("#player1Select", p1);
-					updateDisplay("#player2Select", p2);
+					// updateDisplay("#player1Select", p1);
+					// updateDisplay("#player2Select", p2);
 				}
 			} else {
 				console.log(ID, "problem in attack");
@@ -213,7 +251,7 @@ $(document).ready(function() {
 			return;
 		} else if (player1Confirmed && !player2Confirmed) {
 			//if the first player has been confirmed and the second has not
-
+      
 			// searches array for Id and and stores object first player array
 			for (i = 0; i < playersArray.length; i++) {
 				if (charID === playersArray[i].nickname) {
@@ -230,14 +268,14 @@ $(document).ready(function() {
 			updateDisplay("#player1Select", firstPlayer);
 			//Displays remaining players in enemiesSelect container
 			updateDisplay("#enemiesSelect", playersArray);
-
-			// stageComplete = false;
+      
+			// stageComple$("#player1").empty();te = false;
 
 			// calls charSelect for second player
 			charSelect();
 		} else if (player1Confirmed && player2Confirmed) {
 			//if player 1 has been confirmed and player 2 has been confirmed
-
+      $("#player1").empty();
 			for (i = 0; i < playersArray.length; i++) {
 				console.log(ID, "counter", i);
 				if (charID === playersArray[i].nickname) {
@@ -256,7 +294,7 @@ $(document).ready(function() {
 			} else {
 				updateDisplay("#player2Select", secondPlayer);
 				// playersArray=["none"];
-			}
+			} 
 			Attack(firstPlayer, secondPlayer);
 		}
 	}
@@ -286,8 +324,7 @@ $(document).ready(function() {
 					player2Confirmed = true;
 					//matches element ID with corresponding object stored in playersArray
 					buildChar(this.id);
-					//starts attack function
-					// Attack(firstPlayer, secondPlayer);
+					
 				}
 			});
 		} else {

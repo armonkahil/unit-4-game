@@ -1,14 +1,17 @@
 body {
-	background-image: url("/assets/images/xwing.jpg");
+	background-image: url("/assets/images/thumb-1920-635770.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
+	color: white;
+	font-family: 'Orbitron', sans-serif;
 	
 	
 }
 
 #player1Select div {
 	border: 5px solid green;
+	color: black;
 }
 
 #enemiesSelect div {
@@ -24,20 +27,17 @@ body {
 
 
 .card {
-	/* width: 100%; */
-	/* max-width: 200px;	 */
 	display: block;
 	float: left;
 }
 
 img {
 	padding: 2px 10px;
-	height: 80px; */
-	width: 180px; */
+	height: 80px; 
 }
 p {
 	margin: auto;
-	font-size: x-small;
+	font-size: small;
 	clear: both; 
 }
 #enemiesSelect{
