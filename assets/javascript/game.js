@@ -17,8 +17,8 @@ $(document).ready(function() {
     counterPW: 8,
     cardImg: "./assets/images/Space Balls/LoneStarl.jpg",
     backgroundIMG: "url('./assets/images/Space Balls/thumb-1920-635770.jpg')",
-    thememusic: "assets/audio/space-balls-theme.mp3",
-    sound: "/assets/audio/Lightsaber.ogg",
+    thememusic: "./assets/audio/space-balls-theme.mp3",
+    sound: "./assets/audio/Lightsaber.ogg",
     title: "Space Balls RPG!",
     playAvail: true
   };
