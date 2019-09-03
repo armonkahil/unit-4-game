@@ -67,8 +67,8 @@ $(document).ready(function() {
 
   // var soundArray = ["./assets/audio/Lightsaber.ogg"];
   var thememusic = new Audio(playersArray[0].thememusic);
-  thememusic.loop = true;
-  var wilhem = new Audio(playersArray[0].sound);
+      thememusic.loop = true;
+  var wilhelm = new Audio(playersArray[0].sound);
   // ===========================================================================
   // // ========================================================================
   // // =====================================================================
@@ -145,7 +145,7 @@ $(document).ready(function() {
       .remove();
     $("body").css("background-image", staticArray[0].backgroundIMG);
     $("#title").text(staticArray[0].title);
-    thememusic.play();
+    
     for (var i = 0; i < playersArray.length; i++) {
       //resets playersArray to original stats.
       playersArray[i] = staticArray[i];
@@ -153,6 +153,7 @@ $(document).ready(function() {
 
     console.log("this is the players array ", playersArray);
     updateDisplay(resetTarget, playersArray);
+    thememusic.play();
   }
 
   function winBanner(loser) {
@@ -197,7 +198,7 @@ function endGame () {
     $("button").on("click", function() {
       console.log(ID, "clicked attack");
       animateCSS("button", "wobble");
-      wilhem.play();
+      wilhelm.play();
       if (!p2 === undefined || !p2.length == 0) {
         console.log(ID, playersArray);
 
