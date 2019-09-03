@@ -1,6 +1,7 @@
 body {
 	background-image: url('https://wallpapersite.com/images/pages/pic_h/313.jpg');
 	background-repeat: no-repeat;
+	
 }
 
 #player1Select div {
@@ -36,11 +37,9 @@ p {
 }
 #enemiesSelect{
 	clear: both;
+	color: white;
 }
 h1,h3 {
 	clear:both;
 }
 
-#player1select .card {
-	border: 5px solid green;
-}

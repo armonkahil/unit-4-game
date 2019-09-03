@@ -13,6 +13,7 @@ $(document).ready(function() {
     nickname: "Obi",
     health: 120,
     battleHealth: 0,
+    baseAttack: 8,
     attackPW: 8,
     counterPW: 8,
     cardImg: "./assets/images/Obi1.jpg",
@@ -24,6 +25,7 @@ $(document).ready(function() {
     nickname: "Luke",
     health: 100,
     battleHealth: 0,
+    baseAttack: 5,
     attackPW: 5,
     counterPW: 5,
     cardImg: "./assets/images/Luke1.jpg",
@@ -33,8 +35,9 @@ $(document).ready(function() {
   var vader = {
     name: "Darth Vader",
     nickname: "Vader",
-    health: 300,
+    health: 150,
     battleHealth: 0,
+    baseAttack: 20,
     attackPW: 20,
     counterPW: 20,
     cardImg: "./assets/images/Vader1.jpg",
@@ -44,8 +47,9 @@ $(document).ready(function() {
   var sidious = {
     name: "Darth Sidious",
     nickname: "Sidious",
-    health: 500,
+    health: 180,
     battleHealth: 0,
+    baseAttack: 25,
     attackPW: 25,
     counterPW: 25,
     cardImg: "./assets/images/Sith-Primer-Sidious.jpg",
@@ -136,25 +140,42 @@ $(document).ready(function() {
   //function for pushing selected Character into dummy object array.
   // =============================================================================
   function Attack(p1, p2) {
+    var ID = "Attack: ";
     var audio = new Audio("./assets/audio/Lightsaber.ogg");
-    report("Attack");
+	report("Attack");
+	
     $("button").on("click", function() {
-      console.log("clicked attack");
+      console.log(ID, "clicked attack");
 
-      audio.play();
-      if (p1[0].health > 0 && p2[0].health > 0) {
-		 report("first attack loop");
+      if (!p2 === undefined || !p2.length == 0) {
+          console.log(ID, playersArray);
+        if (p1[0].health > 0 && p2[0].health > 0) {
+		        report("first attack loop");
+		         audio.play();
+        console.log(ID, p1[0].health, p2[0].health);
+     
         p2[0].health -= p1[0].attackPW;
+        
+        console.log(ID, "player 1 hits player 2 for", p1[0].attackPW , "damage. Player 2 has ", p2[0].health , " left.");
+        // console.log("player 1 health ", p1[0].health, "player 2 health ", p2[0].health);
         p1[0].health -= p2[0].counterPW;
-        p1[0].attackPW += p1[0].attackPW;
-
-        if (p1[0].health < 0) {
+        console.log(ID,"player 2 hits player 1 for", p2[0].counterPW , "damage. Player 1 has ", p1[0].health , " left.");
+        console.log(ID, "player 1 has", p1[0].attackPW , " upgraded to ");
+        p1[0].attackPW += p1[0].baseAttack;
+        console.log(ID, p1[0].attackPW," damage.");
+        // updateDisplay("#player1Select", p1);
+        // updateDisplay("#player2Select", p2);
+        if (p1[0].health <= 0) {
+         
           alert("You died game over");
           document.location.reload();
-        } else if (p2[0].health < 0) {
+
+        } else if (p2[0].health <= 0) {
+          
           player2Confirmed = false;
-          firstPlayer[0] = p1[0];
-          secondPlayer.pop();
+          firstPlayer.splice(0,1,p1[0]);
+          secondPlayer = [];
+          
           winBanner();
 
           charSelect();
@@ -162,70 +183,119 @@ $(document).ready(function() {
         updateDisplay("#player1Select", p1);
         updateDisplay("#player2Select", p2);
       }
+     } else {
+       console.log(ID,"problem in attack");
+     }
+     
     });
   }
-
+ // ============================================================================
+ // 
+ // ============================================================================
   function buildChar(charID) {
+    var ID = "buildChar: "
     report("buildChar");
-    console.log("This is the value buildChar got " + charID);
+    console.log(ID, "playersArray length ", playersArray.length);
+    console.log(ID, "This is the value buildChar got ", charID);
+    
+    //if no players are selected, ends function.
     if (!player1Confirmed && !player2Confirmed) {
-      console.log("no character selected");
+      console.log(ID, "no character selected");
       return;
+
     } else if (player1Confirmed && !player2Confirmed) {
       //if the first player has been confirmed and the second has not
+      
+      // searches array for Id and and stores object first player array
       for (i = 0; i < playersArray.length; i++) {
         if (charID === playersArray[i].nickname) {
+        
           playersArray[i].playAvail = false;
+        
           firstPlayer.push(playersArray[i]);
-          firstPlayer[0].battleHealth = firstPlayer[0].health;
+        
+          // firstPlayer[0].battleHealth = firstPlayer[0].health;
           playersArray.splice(i, 1);
+          console.log(ID,playersArray);
         }
       }
+      //Displays first player in player1Select container
       updateDisplay("#player1Select", firstPlayer);
+      //Displays remaining players in enemiesSelect container
       updateDisplay("#enemiesSelect", playersArray);
-      stageComplete = false;
+
+      // stageComplete = false;
+      
+
+      // calls charSelect for second player
       charSelect();
+
+      
     } else if (player1Confirmed && player2Confirmed) {
       //if player 1 has been confirmed and player 2 has been confirmed
+      
       for (i = 0; i < playersArray.length; i++) {
+        console.log(ID,"counter", i);
         if (charID === playersArray[i].nickname) {
           playersArray[i].playAvail = false;
+          secondPlayer = [];
           secondPlayer.push(playersArray[i]);
-          secondPlayer[0].battleHealth = secondPlayer[0].health;
+          // secondPlayer[0].battleHealth = secondPlayer[0].health;
           playersArray.splice(i, 1);
+          console.log(ID, secondPlayer);
+          console.log(ID,playersArray);
         }
       }
-      updateDisplay("#player2Select", secondPlayer);
-      updateDisplay("#enemiesSelect", playersArray);
+      if (!playersArray === undefined || !playersArray.length == 0) {
+         updateDisplay("#player2Select", secondPlayer);
+         updateDisplay("#enemiesSelect", playersArray);
+      } else {
+        updateDisplay("#player2Select", secondPlayer);
+        // playersArray=["none"];
+        
+      }
+     Attack(firstPlayer,secondPlayer);
     }
   }
 
   function charSelect() {
     report("charSelect");
-    console.log(playersArray);
+    var ID = "charSelect: ";
+    console.log(ID, playersArray);
 	
-	
+	//if the playersArray is undefined, don't run.
 	if (!playersArray === undefined || !playersArray.length == 0) {
-		// array empty or does not exist
-	
+		      console.log(ID, "players array defined");
+          //event listener added to cards
       		$(".yourChar").on("click", function() {
         		//if first player hasn't been selected yet...
        			 if (!player1Confirmed) {
-          				console.log("picked first player");
+                  console.log(ID, "picked first player");
+                  
           				player1Confirmed = true;
-          				buildChar(this.id);
+                  //matches element ID with corresponding object stored in playersArray.
+                  buildChar(this.id);
+
+
           				//if first has been selected and second player has not been selected.
         		} else if (!player2Confirmed) {
-          				console.log("picked second player");
-          				player2Confirmed = true;
-          				buildChar(this.id);
-        		}
-			  });
+                      console.log(ID, "picked second player");
+                      
+          				    player2Confirmed = true;
+                      //matches element ID with corresponding object stored in playersArray
+                      buildChar(this.id);
+                      //starts attack function
+						          // Attack(firstPlayer, secondPlayer);
+        		        }
+			      });
 			  
-    } else {
-      winBanner()
-      confirm("would you like to play again?");
-      document.location.reload();
+          } else {
+                  //if playsArray is undefined, then there are no players left and the game is over.
+
+                  winBanner()
+                  confirm("would you like to play again?");
+                  //reset page
+                  document.location.reload();
     }
   }
   // =============================================================================
@@ -239,13 +309,13 @@ $(document).ready(function() {
   // =============================================================================
 
   function Game() {
+    
+    //sets board
     resetGame("#player1Select");
-    //  reset("#enemiesSelect");
-    //starts the
-    // for player 1
-    charSelect(stageComplete);
-    Attack(firstPlayer, secondPlayer);
+    //selects players
+    charSelect();
+    
   }
-
+//starts Gam
   Game();
 });
