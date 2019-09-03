@@ -292,6 +292,7 @@ audio.play();
 				updateDisplay("#player2Select", secondPlayer);
 				updateDisplay("#enemiesSelect", playersArray);
 			} else {
+        $("#enemiesSelect").children().remove();
 				updateDisplay("#player2Select", secondPlayer);
 				// playersArray=["none"];
 			} 
