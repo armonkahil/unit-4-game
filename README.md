@@ -1,5 +1,5 @@
 #### unit-4-game
-###[Jquery RPG Game](https://armonkahil.github.io/unit-4-game/)
+### [Jquery RPG Game](https://armonkahil.github.io/unit-4-game/)
 
 ## [Bootstrap](https://getbootstrap.com/)
 ## [Animate.CSS](https://daneden.github.io/animate.css/)
