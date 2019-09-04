@@ -20,6 +20,7 @@ $(document).ready(function() {
     thememusic: "./assets/audio/space-balls-theme.mp3",
     sound: "./assets/audio/Lightsaber.ogg",
     title: "./assets/images/Space Balls/Spaceballs-5187654ca916c.png",
+    endSound: "./assets/audio/self-destruct-button.mp3",
     playAvail: true
   };
 
@@ -68,7 +69,9 @@ $(document).ready(function() {
   // var soundArray = ["./assets/audio/Lightsaber.ogg"];
   var thememusic = new Audio(playersArray[0].thememusic);
       thememusic.loop = true;
-  var wilhelm = new Audio(playersArray[0].sound);
+  var wilhelm = new Audio("./assets/audio/WilhelmScream.ogg");
+  var attackSound = new Audio(playersArray[0].sound);
+  var endSound1 = new Audio(playersArray[0].endSound);
   // ===========================================================================
   // // ========================================================================
   // // =====================================================================
@@ -158,6 +161,7 @@ $(document).ready(function() {
   }
 
   function winBanner(loser) {
+    wilhelm.play();
     report("winnerBanner");
     $("#player1").text("YOU WON!!");
     $("#player2").text("You defeated " + loser[0].name + "!!!");
@@ -166,7 +170,7 @@ $(document).ready(function() {
   }
 
   function Died() {
-    
+     endSound1.play();
     $("#player1Select").empty();
     $("#player1").text("YOU Died!!");
     $("button").text("Reset");
@@ -176,9 +180,9 @@ $(document).ready(function() {
   }
 
 function endGame () {
-  animateCSS('#player1Select','pulse infinite')
+  endSound1.play()
   $("#player1").text("No one left. Click the button to start over");
-  $("button").text("Reset");
+  $("attackbtn").text("Reset");
     $("button").on("click", function() {
       document.location.reload();
     });
@@ -199,7 +203,7 @@ function endGame () {
     $("#attackbtn").on("click", function() {
       console.log(ID, "clicked attack");
       animateCSS("#attackbtn", "wobble");
-      wilhelm.play();
+      attackSound.play();
       if (!p2 === undefined || !p2.length == 0) {
         console.log(ID, playersArray);
 
@@ -328,6 +332,7 @@ function endGame () {
 
   function charSelect() {
     report("charSelect");
+    
     var ID = "charSelect: ";
     console.log(ID, playersArray);
 
@@ -381,12 +386,15 @@ function endGame () {
   }
   
   $('#themeplay').on('click', function() {
+    animateCSS('#themeplay','pulse')
     thememusic.play();
+    });
     $('#themepause').on('click', function() {
     thememusic.pause();
+    animateCSS('#themepause','pulse')
     });
-
-    });
+    
+   
 
   
 
