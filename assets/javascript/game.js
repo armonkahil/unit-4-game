@@ -31,8 +31,8 @@ var char1 = {
   counterPW: 8,
   cardImg: "./assets/images/Star Wars/Obi1.jpg",
   backgroundIMG: "url('./assets/images/Star Wars/xwing.jpg')",
-  thememusic: "./assets/audio/Star Wars/Star Wars Theme Song by John Williams.ogg",
-  sound: "./assets/audio/Star Wars/Lightsaber.ogg",
+  thememusic: "./assets/audio/Star Wars/theme.ogg",
+  sound: "./assets/audio/Star Wars/sound.ogg",
   title: "./assets/images/Star Wars/star-wars-logo-0.png",
   endSound: "./assets/audio/Star wars/Strong with the force.mp3",
   playAvail: true
