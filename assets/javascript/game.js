@@ -93,54 +93,54 @@ var char4 = {
 //  ----------------------------------------------------------------------------
 //  Character stats and attributes are stored in objects.
 //  ----------------------------------------------------------------------------
-  // var char1 = {
-  //   name: "Lone Star",
-  //   nickname: "Lone", 
-  //   health: 120,
-  //   baseAttack: 8,
-  //   attackPW: 8,
-  //   counterPW: 8,
-  //   cardImg: "./assets/images/Space Balls/LoneStarl.jpg",
-  //   backgroundIMG: "url('./assets/images/Space Balls/thumb-1920-635770.jpg')",
-  //   thememusic: "./assets/audio/Space Balls/space-balls-theme.mp3",
-  //   sound: "./assets/audio/Space Balls/saberhitwall3.mp3",
-  //   title: "./assets/images/Space Balls/Spaceballs-5187654ca916c.png",
-  //   endSound: "./assets/audio/Space Balls/self-destruct-button.mp3",
-  //   playAvail: true
-  // };
+  var char1 = {
+    name: "Lone Star",
+    nickname: "Lone", 
+    health: 120,
+    baseAttack: 8,
+    attackPW: 8,
+    counterPW: 8,
+    cardImg: "./assets/images/Space Balls/LoneStarl.jpg",
+    backgroundIMG: "url('./assets/images/Space Balls/thumb-1920-635770.jpg')",
+    thememusic: "./assets/audio/Space Balls/space-balls-theme.mp3",
+    sound: "./assets/audio/Space Balls/saberhitwall3.mp3",
+    title: "./assets/images/Space Balls/Spaceballs-5187654ca916c.png",
+    endSound: "./assets/audio/Space Balls/self-destruct-button.mp3",
+    playAvail: true
+  };
 
-  // var char2 = {
-  //   name: "Barf",
-  //   nickname: "Barf",
-  //   health: 100,
-  //   baseAttack: 5,
-  //   attackPW: 5,
-  //   counterPW: 5,
-  //   cardImg: "./assets/images/Space Balls/Barf.jpg",
-  //   playAvail: true
-  // };
+  var char2 = {
+    name: "Barf",
+    nickname: "Barf",
+    health: 100,
+    baseAttack: 5,
+    attackPW: 5,
+    counterPW: 5,
+    cardImg: "./assets/images/Space Balls/Barf.jpg",
+    playAvail: true
+  };
 
-  // var char3 = {
-  //   name: "The Guy",
-  //   nickname: "Guy",
-  //   health: 150,
-  //   baseAttack: 20,
-  //   attackPW: 20,
-  //   counterPW: 20,
-  //   cardImg: "./assets/images/Space Balls/Russ.jpg",
-  //   playAvail: true
-  // };
+  var char3 = {
+    name: "The Guy",
+    nickname: "Guy",
+    health: 150,
+    baseAttack: 20,
+    attackPW: 20,
+    counterPW: 20,
+    cardImg: "./assets/images/Space Balls/Russ.jpg",
+    playAvail: true
+  };
 
-  // var char4 = {
-  //   name: "DarK Helmet",
-  //   nickname: "Dark",
-  //   health: 180,
-  //   baseAttack: 25,
-  //   attackPW: 25,
-  //   counterPW: 25,
-  //   cardImg: "./assets/images/Space Balls/Dark.jpeg",
-  //   playAvail: true
-  // };
+  var char4 = {
+    name: "DarK Helmet",
+    nickname: "Dark",
+    health: 180,
+    baseAttack: 25,
+    attackPW: 25,
+    counterPW: 25,
+    cardImg: "./assets/images/Space Balls/Dark.jpeg",
+    playAvail: true
+  };
 
   var status = "play"; 
 
