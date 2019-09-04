@@ -1,13 +1,13 @@
-# unit-4-game
-#[Jquery RPG Game](https://armonkahil.github.io/unit-4-game/)
+#### unit-4-game
+###[Jquery RPG Game](https://armonkahil.github.io/unit-4-game/)
 
-## Bootstrap
+## [Bootstrap](https://getbootstrap.com/)
 ## [Animate.CSS](https://daneden.github.io/animate.css/)
 
 
 ### This is a simple Jquery assignment. I could not decide on a theme for this assignment. So I designed it in way that allows it to easily be changed. All of the specific theme components are stored on the object variable char1. To play Stars Wars RPG, uncomment the Star Wars variable section and comment out the Space Balls section.
 
-## I appreciate authenticity. So, I have the actual Swartz Saber sound. 
+### I appreciate authenticity. So, I have the actual Swartz Saber sound. 
   
  ## 1. Here's how the app works:
 
