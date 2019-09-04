@@ -5,7 +5,7 @@
 ## [Animate.CSS](https://daneden.github.io/animate.css/)
 
 
-### This is a simple Jquery assignment. I could not decide on a theme for this assignment. So I designed it in way that allows it to easily be changed. All of the specific theme components are stored on the object variable char1. To play Stars Wars RPG, uncomment the Star Wars variable section and comment out the Space Balls section.
+### This is a simple Jquery assignment. I could not decide on a theme for this assignment. So I designed it in way that allows it to easily be changed. All of the specific theme components are stored on the object variable char1. Comment the Stars Wars variables for a surprise.
 
 ### I appreciate authenticity. So, I have the actual Swartz Saber sound. 
   
