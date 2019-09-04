@@ -477,7 +477,7 @@ function playmusic () {
     
  
   
-$
+
   
 
   Game();
