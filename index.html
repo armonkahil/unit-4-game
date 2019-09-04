@@ -2,54 +2,74 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Space Balls RPG</title>
-    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body> 
-    <div class = "container animated zoomIn no-gutters delay">
-        <div class="row justify-content-between">
-           <div class="col-5 order-12 justify-content-end">
-              <div class="navbar bg-transparent justify-content-end">
-                    <button class="btn btn-outline-light btn animated" id="themeplay">play</button>
-                    <button class="btn btn-outline-light btn animated" id="themepause">pause</button>
-                    <img alt="title image" id="title">
-                    </div>
-                  </div>
-                  <div class="col order-1">  
-              <div id = "player1Select"></div>
-                      <!-- players are loaded here when game starts -->
-                      <!-- first player is staged here after being selected -->
-             
-                <h5>Your Character</h5>
-                <div id="enemiesSelect"></div>
-                <!-- players left to select are staged here -->
-                <h5>Enemies Available to Attack</h5>
-                <div id="fightSection">
-                <h5>Fight Section</h5>
-                <button type="button" id="attackbtn" class="btn btn-outline-light">Attack</button>
-                </div>
-                <h5>Defender</h5>
-                <div id="player2Select"></div>
-                <div id = "winnerSec">
-                 <h5 id="player1"></h5>
-                 <h5 id="player2"></h5>
-                  <!-- section for winner results       -->
-                </div>
-              </div>
-              
+  <body>
+    <div class="container animated zoomIn no-gutters delay">
+      <div class="row justify-content-between">
+        <!-- ============================================================= -->
+        <!-- title graphic and theme audio controls -->
+        <!-- ============================================================= -->
+        <div class="col-5 order-12 justify-content-end">
+          <div class="navbar bg-transparent justify-content-end">
+              <button id="playpause" type="button" class="btn btn-outline-light btn animated">Play / Pause</button>
+            <audio id="themesong"></audio>
+            
+            <img alt="title image" id="title" />
           </div>
+        </div>
+        <!-- ======================================================================= -->
+        <!-- game column -->
+        <!-- ======================================================================= -->
+        <div class="col order-1">
+          <div id="player1Select"></div>
+          <!-- players are loaded here when game starts -->
+          <!-- first player is staged here after being selected -->
+
+          <h5>Your Character</h5>
+          <div id="enemiesSelect"></div>
+          <!-- players left to select are staged here -->
+          <h5>Enemies Available to Attack</h5>
+          <div id="fightSection">
+            <h5>Fight Section</h5>
+            <button type="button" id="attackbtn" class="btn btn-outline-light">
+              Attack
+            </button>
+          </div>
+          <h5>Defender</h5>
+          <div id="player2Select"></div>
+          <!-- ============================================================= -->
+          <!--attack update area -->
+          <!-- ============================================================= -->
+          <div id="winnerSec">
+            <h5 id="player1"></h5>
+            <h5 id="player2"></h5>
+            <!-- section for winner results       -->
+          </div>
+        </div>
       </div>
-      
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
