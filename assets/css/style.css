@@ -1,5 +1,5 @@
-body {
-	/* background-image: url("/assets/images/Space Balls/thumb-1920-635770.jpg"); */
+html, body {
+	
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
@@ -23,12 +23,6 @@ body {
 	border: 5px solid red;
 	background-color: black;
 	color:white;
-}
-
-
-.card {
-	display: block;
-	float: left;
 }
 
 img {

@@ -19,7 +19,7 @@ $(document).ready(function() {
     backgroundIMG: "url('./assets/images/Space Balls/thumb-1920-635770.jpg')",
     thememusic: "./assets/audio/space-balls-theme.mp3",
     sound: "./assets/audio/Lightsaber.ogg",
-    title: "Space Balls RPG!",
+    title: "./assets/images/Space Balls/Spaceballs-5187654ca916c.png",
     playAvail: true
   };
 
@@ -118,7 +118,7 @@ $(document).ready(function() {
     for (var i = 0; i < selection.length; i++) {
       $(target).append("<div/>");
       $(target + " div:last-child").addClass(
-        "card animated fadeIn text-center yourChar"
+        "card animated fadeIn text-center yourChar float-left"
       );
       $(target + " div:last-child").attr("id", selection[i].nickname);
       $(target + " div:last-child").append("<p>" + selection[i].name + "</p>");
@@ -144,7 +144,8 @@ $(document).ready(function() {
       .children()
       .remove();
     $("body").css("background-image", staticArray[0].backgroundIMG);
-    $("#title").text(staticArray[0].title);
+    $("#title").addClass("float-right img-responsive");
+    $("#title").attr("src", staticArray[0].title);
     
     for (var i = 0; i < playersArray.length; i++) {
       //resets playersArray to original stats.
@@ -153,7 +154,7 @@ $(document).ready(function() {
 
     console.log("this is the players array ", playersArray);
     updateDisplay(resetTarget, playersArray);
-    thememusic.play();
+    
   }
 
   function winBanner(loser) {
@@ -195,9 +196,9 @@ function endGame () {
 
     report("Attack");
 
-    $("button").on("click", function() {
+    $("#attackbtn").on("click", function() {
       console.log(ID, "clicked attack");
-      animateCSS("button", "wobble");
+      animateCSS("#attackbtn", "wobble");
       wilhelm.play();
       if (!p2 === undefined || !p2.length == 0) {
         console.log(ID, playersArray);
@@ -226,7 +227,7 @@ function endGame () {
             var name = [];
             name.push(p2[0]);
             winBanner(name)
-            $("button").off();
+            $("#attackbtn").off();
             player2Confirmed = false;
             firstPlayer.splice(0, 1, p1[0]);
             secondPlayer = [];
@@ -372,10 +373,22 @@ function endGame () {
 
   function Game() {
     //sets board
+    
     resetGame("#player1Select");
     //selects players
+    
     charSelect();
   }
-  //starts Gam
+  
+  $('#themeplay').on('click', function() {
+    thememusic.play();
+    $('#themepause').on('click', function() {
+    thememusic.pause();
+    });
+
+    });
+
+  
+
   Game();
 });
