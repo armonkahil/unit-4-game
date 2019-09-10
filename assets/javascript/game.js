@@ -205,19 +205,22 @@ var char4 = {
     $(target).children().remove();
 
     for (var i = 0; i < selection.length; i++) {
-      $(target).append("<div/>");
-      $(target + " div:last-child").addClass(
+      var newDiv = $("<div>");
+      newDiv.addClass(
         "card animated fadeIn text-center yourChar float-left");
-      $(target + " div:last-child").attr("id", selection[i].nickname);
-      $(target + " div:last-child").append("<p>" + selection[i].name + "</p>");
-      $(target + " div:last-child").append("<img/>");
-      $(target + " img:last-child").attr("class", "rounded img-responsive");
-      $(target + " img:last-child").attr("src", selection[i].cardImg);
-      $(target + " img:last-child").attr("width", "130");
-      $(target + " div:last-child").append("<p>" + selection[i].health + "</p>");
-      $(target + " div:last-child").append();
+        newDiv.attr("id", selection[i].nickname);
+        var pOne = $("<p>").text(selection[i].name);
+        newDiv.append(pOne);
+        var images = $("<img>");
+        images.addClass("rounded img-responsive");
+        images.attr("src", selection[i].cardImg);
+        images.attr("width","130");
+        newDiv.append(images);
+        var pTwo = $("<p>").text(selection[i].health);
+        newDiv.append(pTwo);
+        $(target).append(newDiv);
+      }
     }
-  }
 
   //sets the board of playersArray
   function resetGame(resetTarget) {
