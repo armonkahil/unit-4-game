@@ -49,6 +49,6 @@
 * Your players should be able to win and lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
 
 # Star Wars Theme
-![StarWars](assets/images/Star Wars/StarWarsTheme.png)
+![StarWars](assets/images/StarWarsTheme.png)
 # Space Balls Theme
-![SpaceBalls](assets/images/Space Balls/SpaceBallsTheme.png)
+![SpaceBalls](assets/images/SpaceBallsTheme.png)
