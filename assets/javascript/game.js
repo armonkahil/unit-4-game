@@ -1,101 +1,100 @@
 //ensures code does not run until the page full loads
 $(document).ready(function() {
-  // 
-// =============================================================================
-// // ==========================================================================
-   // // =======================================================================
-      // I could not decide on a theme for this assignment. So I designed it in
-      // way that allows it to easily be changed. All of the specific theme 
-      // components are stored on the object variable char1.
-      // =======================================================================
-   // ==========================================================================
-// =============================================================================
+  //
+  // =============================================================================
+  // // ==========================================================================
+  // // =======================================================================
+  // I could not decide on a theme for this assignment. So I designed it in
+  // way that allows it to easily be changed. All of the specific theme
+  // components are stored on the object variable char1.
+  // =======================================================================
+  // ==========================================================================
+  // =============================================================================
 
-// =============================================================================
-// // ==========================================================================
-   // // =======================================================================
-      // // ====================================================================
-         // // =================================================================
-            // Stars Theme
-            // =================================================================
-         // ====================================================================
-      // =======================================================================
-   // ==========================================================================
-// =============================================================================
-var char1 = {
-  name: "Obi-Wan Kenobi",
-  nickname: "Obi", 
-  health: 120,
-  baseAttack: 8,
-  attackPW: 8,
-  counterPW: 8,
-  cardImg: "./assets/images/Star Wars/Obi1.jpg",
-  backgroundIMG: "url('./assets/images/Star Wars/xwing.jpg')",
-  thememusic: "./assets/audio/Star Wars/theme.ogg",
-  sound: "./assets/audio/Star Wars/sound.ogg",
-  title: "./assets/images/Star Wars/star-wars-logo-0.png",
-  endSound: "./assets/audio/Star wars/Strong with the force.mp3",
-  playAvail: true
-};
+  // =============================================================================
+  // // ==========================================================================
+  // // =======================================================================
+  // // ====================================================================
+  // // =================================================================
+  // Stars Theme
+  // =================================================================
+  // ====================================================================
+  // =======================================================================
+  // ==========================================================================
+  // =============================================================================
+  var char1 = {
+    name: "Obi-Wan Kenobi",
+    nickname: "Obi",
+    health: 120,
+    baseAttack: 8,
+    attackPW: 8,
+    counterPW: 8,
+    cardImg: "./assets/images/Star Wars/Obi1.jpg",
+    backgroundIMG: "url('./assets/images/Star Wars/xwing.jpg')",
+    thememusic: "./assets/audio/Star Wars/theme.ogg",
+    sound: "./assets/audio/Star Wars/sound.ogg",
+    title: "./assets/images/Star Wars/star-wars-logo-0.png",
+    endSound: "./assets/audio/Star wars/Strong with the force.mp3",
+    playAvail: true
+  };
 
-var char2 = {
-  name: "Luke Skywalker",
-  nickname: "Luke",
-  health: 100,
-  baseAttack: 5,
-  attackPW: 5,
-  counterPW: 5,
-  cardImg: "./assets/images/Star Wars/Luke1.jpg",
-  playAvail: true
-};
+  var char2 = {
+    name: "Luke Skywalker",
+    nickname: "Luke",
+    health: 100,
+    baseAttack: 5,
+    attackPW: 5,
+    counterPW: 5,
+    cardImg: "./assets/images/Star Wars/Luke1.jpg",
+    playAvail: true
+  };
 
-var char3 = {
-  name: "Darth Vader",
-  nickname: "Vader",
-  health: 150,
-  baseAttack: 20,
-  attackPW: 20,
-  counterPW: 20,
-  cardImg: "./assets/images/Star Wars/Vader1.jpg",
-  playAvail: true
-};
+  var char3 = {
+    name: "Darth Vader",
+    nickname: "Vader",
+    health: 150,
+    baseAttack: 20,
+    attackPW: 20,
+    counterPW: 20,
+    cardImg: "./assets/images/Star Wars/Vader1.jpg",
+    playAvail: true
+  };
 
-var char4 = {
-  name: "Darth Sidious",
-  nickname: "Sidious",
-  health: 180,
-  baseAttack: 25,
-  attackPW: 25,
-  counterPW: 25,
-  cardImg: "./assets/images/Star Wars/Sith-Primer-Sidious.jpg",
-  playAvail: true
-};
+  var char4 = {
+    name: "Darth Sidious",
+    nickname: "Sidious",
+    health: 180,
+    baseAttack: 25,
+    attackPW: 25,
+    counterPW: 25,
+    cardImg: "./assets/images/Star Wars/Sith-Primer-Sidious.jpg",
+    playAvail: true
+  };
 
-
-// =============================================================================
-// // ==========================================================================
-   // // =======================================================================
-      // // ====================================================================
-         // // =================================================================
-            // // ==============================================================
-               // Comment this section out for Star Wars Theme
-               // ==============================================================
-            // =================================================================
-         // ====================================================================
-      // =======================================================================
-   // ==========================================================================
-// =============================================================================
+  // =============================================================================
+  // // ==========================================================================
+  // // =======================================================================
+  // // ====================================================================
+  // // =================================================================
+  // // ==============================================================
+  // Comment this section out for Star Wars Theme
+  // ==============================================================
+  // =================================================================
+  // ====================================================================
+  // =======================================================================
+  // ==========================================================================
+  // =============================================================================
 
   // ============================================================================
   // Global Variables
   // ============================================================================
-//
-//  ----------------------------------------------------------------------------
-//  Character stats and attributes are stored in objects.
-//  ----------------------------------------------------------------------------
+  //
+  //  ----------------------------------------------------------------------------
+  //  Character stats and attributes are stored in objects.
+  //  ----------------------------------------------------------------------------
   var char1 = {
     name: "Lone Star",
-    nickname: "Lone", 
+    nickname: "Lone",
     health: 120,
     baseAttack: 8,
     attackPW: 8,
@@ -142,7 +141,7 @@ var char4 = {
     playAvail: true
   };
 
-  var status = "play"; 
+  var status = "play";
 
   //array created to store character objects
   var playersArray = [char1, char2, char3, char4];
@@ -154,14 +153,13 @@ var char4 = {
   var player1Confirmed = false;
   var player2Confirmed = false;
 
-//audio variables
+  //audio variables
   var thememusic = new Audio(playersArray[0].thememusic);
-      thememusic.loop = true;
+  thememusic.loop = true;
   var wilhelm = new Audio("./assets/audio/WilhelmScream.ogg");
   var attackSound = new Audio(playersArray[0].sound);
   var endSound1 = new Audio(playersArray[0].endSound);
-  
-  
+
   // ===========================================================================
   // // ========================================================================
   // // =====================================================================
@@ -202,32 +200,35 @@ var char4 = {
   //updates display
   function updateDisplay(target, selection) {
     report("updating display");
-    $(target).children().remove();
+    $(target)
+      .children()
+      .remove();
 
     for (var i = 0; i < selection.length; i++) {
       var newDiv = $("<div>");
-      newDiv.addClass(
-        "card animated fadeIn text-center yourChar float-left");
-        newDiv.attr("id", selection[i].nickname);
-        var pOne = $("<p>").text(selection[i].name);
-        newDiv.append(pOne);
-        var images = $("<img>");
-        images.addClass("rounded img-responsive");
-        images.attr("src", selection[i].cardImg);
-        images.attr("width","130");
-        newDiv.append(images);
-        var pTwo = $("<p>").text(selection[i].health);
-        newDiv.append(pTwo);
-        $(target).append(newDiv);
-      }
+      newDiv.addClass("card animated fadeIn text-center yourChar float-left");
+      newDiv.attr("id", selection[i].nickname);
+      var pOne = $("<p>").text(selection[i].name);
+      newDiv.append(pOne);
+      var images = $("<img>");
+      images.addClass("rounded img-responsive");
+      images.attr("src", selection[i].cardImg);
+      images.attr("width", "130");
+      newDiv.append(images);
+      var pTwo = $("<p>").text(selection[i].health);
+      newDiv.append(pTwo);
+      $(target).append(newDiv);
     }
+  }
 
   //sets the board of playersArray
   function resetGame(resetTarget) {
     report("resetting game");
     player1Confirmed = false;
     player2Confirmed = false;
-    $(resetTarget).children().remove();
+    $(resetTarget)
+      .children()
+      .remove();
     //sets background image
     $("body").css("background-image", staticArray[0].backgroundIMG);
     //sets title image
@@ -235,26 +236,26 @@ var char4 = {
     $("#title").attr("src", staticArray[0].title);
     $("#themesong").attr("src", staticArray[0].thememusic);
     $("#themesong").attr("loop", "true");
-    
+
     for (var i = 0; i < playersArray.length; i++) {
       //resets playersArray to original stats.
       playersArray[i] = staticArray[i];
     }
     updateDisplay(resetTarget, playersArray);
-    
   }
-// updates page after winning
+  // updates page after winning
   function winBanner(loser) {
     wilhelm.play();
     report("winnerBanner");
     $("#player1").text("YOU WON!!");
     $("#player2").text("You defeated " + loser[0].name + "!!!");
-    $("#player2Select").children().remove();
-
+    $("#player2Select")
+      .children()
+      .remove();
   }
-//updates page after dying
+  //updates page after dying
   function Died() {
-     endSound1.play();
+    endSound1.play();
     $("#player1Select").empty();
     $("#player1").text("YOU Died!!");
     $("button").text("Reset");
@@ -262,26 +263,26 @@ var char4 = {
       document.location.reload();
     });
   }
-//updates page after defeating all players
-function endGame () {
-  endSound1.play()
-  $("#player1").text("No one left. Click the button to start over");
-  $("#attackbtn").text("Reset");
-  $("#attackbtn").on("click", function() {
+  //updates page after defeating all players
+  function endGame() {
+    endSound1.play();
+    $("#player1").text("No one left. Click the button to start over");
+    $("#attackbtn").text("Reset");
+    $("#attackbtn").on("click", function() {
       document.location.reload();
     });
   }
   //plays theme music
-function playmusic () {
-  $('#playpause').on('click', function(){ 
-    $("#themesong").trigger(status);
-     if (status == 'play') {
-         status='pause';                
-       } else {
-         status = 'play';     
-       }
-     });
-}
+  function playmusic() {
+    $("#playpause").on("click", function() {
+      $("#themesong").trigger(status);
+      if (status == "play") {
+        status = "pause";
+      } else {
+        status = "play";
+      }
+    });
+  }
 
   // =============================================================================
   // Game functionality
@@ -291,7 +292,7 @@ function playmusic () {
   // =============================================================================
   function Attack(p1, p2) {
     var ID = "Attack: ";
-    report(ID,"Attack"); 
+    report(ID, "Attack");
 
     //when attack button is clicked on
     $("#attackbtn").on("click", function() {
@@ -301,21 +302,27 @@ function playmusic () {
       if (!p2 === undefined || !p2.length == 0) {
         //both players are alive
         if (p1[0].health > 0 && p2[0].health > 0) {
-          report(ID,"Attack loop");
+          report(ID, "Attack loop");
           //when player 1 attacks player 2
           p2[0].health -= p1[0].attackPW;
-         
-            //player 1's attack power increases by base attack power
-            p1[0].attackPW += p1[0].baseAttack;
-            //updates info for player 1 attack
-          $("#player1").text(p1[0].name + " hit " + p2[0].name +" for " + p1[0].attackPW +" damage.");
-            //if player 2 dies from player 1's attack
+
+          //player 1's attack power increases by base attack power
+          p1[0].attackPW += p1[0].baseAttack;
+          //updates info for player 1 attack
+          $("#player1").text(
+            p1[0].name +
+              " hit " +
+              p2[0].name +
+              " for " +
+              p1[0].attackPW +
+              " damage."
+          );
+          //if player 2 dies from player 1's attack
           if (p2[0].health <= 0) {
-            
             var name = [];
             name.push(p2[0]);
             //dates screen with winner inforamtion
-            winBanner(name)
+            winBanner(name);
             //remove event listener from attack button
             $("#attackbtn").off();
             //resets player 2 pick
@@ -324,12 +331,10 @@ function playmusic () {
             firstPlayer.splice(0, 1, p1[0]);
             //second player is erased
             secondPlayer = [];
-            
+
             //picks player for next round
             charSelect();
-
           } else {
-            
             //if player 2 lives
             //player 2 counter attacks player 1
             p1[0].health -= p2[0].counterPW;
@@ -337,10 +342,17 @@ function playmusic () {
             updateDisplay("#player1Select", p1);
             updateDisplay("#player2Select", p2);
             //updates screen with info from attack
-            $("#player2").text(p2[0].name +" counter attacked " + p1[0].name + " for " + p2[0].counterPW + " damage.");
+            $("#player2").text(
+              p2[0].name +
+                " counter attacked " +
+                p1[0].name +
+                " for " +
+                p2[0].counterPW +
+                " damage."
+            );
             //if player 1 dies
             if (p1[0].health <= 0) {
-              //run died function   
+              //run died function
               Died();
             }
           }
@@ -357,12 +369,11 @@ function playmusic () {
   //builds player variable for attack function
   function buildChar(charID) {
     var ID = "buildChar: ";
-    report(ID,"buildChar");
+    report(ID, "buildChar");
 
     //if no players are selected, ends function.
     if (!player1Confirmed && !player2Confirmed) {
       return;
-
     } else if (player1Confirmed && !player2Confirmed) {
       //if the first player has been confirmed and the second has not
 
@@ -380,19 +391,17 @@ function playmusic () {
       //Displays remaining players in enemiesSelect container
       updateDisplay("#enemiesSelect", playersArray);
 
-
       // calls charSelect for second player
       charSelect();
-
     } else if (player1Confirmed && player2Confirmed) {
       //if player 1 and 2 have been pick clicked on
-      
+
       // searches array for Id and and stores object first player array
       for (i = 0; i < playersArray.length; i++) {
         if (charID === playersArray[i].nickname) {
           //pushes player object into variable to play with
           secondPlayer.push(playersArray[i]);
-         //removes selected player from players array
+          //removes selected player from players array
           playersArray.splice(i, 1);
         }
       }
@@ -407,7 +416,7 @@ function playmusic () {
         $("#enemiesSelect")
           .children()
           .remove();
-          //updates display with last player
+        //updates display with last player
         updateDisplay("#player2Select", secondPlayer);
       }
       //if both players are picked, run attack function
@@ -442,7 +451,7 @@ function playmusic () {
         }
       });
     } else {
-      //if playsArray is undefined, then there are no players left and the game is over.      
+      //if playsArray is undefined, then there are no players left and the game is over.
       //run endGame function
       endGame();
     }
@@ -459,29 +468,23 @@ function playmusic () {
 
   function Game() {
     //sets board
-    
+
     resetGame("#player1Select");
     //selects players
     //toggle function for theme music
     playmusic();
     charSelect();
-
   }
-  
-  $('#themeplay').on('click', function() {
-    animateCSS('#themeplay','pulse')
+
+  $("#themeplay").on("click", function() {
+    animateCSS("#themeplay", "pulse");
     console.log(this);
     thememusic.play();
-    });
-    $('#themepause').on('click', function() {
+  });
+  $("#themepause").on("click", function() {
     thememusic.pause();
-    animateCSS('#themepause','pulse')
-    });
-    
- 
-  
-
-  
+    animateCSS("#themepause", "pulse");
+  });
 
   Game();
 });

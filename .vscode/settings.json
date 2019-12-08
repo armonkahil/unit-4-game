@@ -10,5 +10,6 @@
         "sidious",
         "sith",
         "stagecomplete"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

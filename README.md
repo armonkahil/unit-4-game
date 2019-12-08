@@ -1,14 +1,15 @@
-#### unit-4-game
-### [Jquery RPG Game](https://armonkahil.github.io/unit-4-game/)
-
-## [Bootstrap](https://getbootstrap.com/)
-## [Animate.CSS](https://daneden.github.io/animate.css/)
+# [Star Wars RPG](https://armonkahil.github.io/unit-4-game/)
 
 
 ### This is a simple Jquery assignment. I could not decide on a theme for this assignment. So I designed it in way that allows it to easily be changed. All of the specific theme components are stored on the object variable char1. Comment the Stars Wars variables for a surprise.
 
-### I appreciate authenticity. So, I have the actual Swartz Saber sound. 
+### I appreciate authenticity. So, I have the actual ***Swartz Saber*** sound. 
   
+### Technologies Used:
+ - [jQuery](https://jquery.com/)
+ - [Bootstrap](https://getbootstrap.com/)
+ - [Animate.CSS](https://daneden.github.io/animate.css/)
+
  ## 1. Here's how the app works:
 
    * When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
@@ -47,3 +48,7 @@
 
 * Your players should be able to win and lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
 
+# Star Wars Theme
+![StarWars](assets/images/Star Wars/StarWarsTheme.png)
+# Space Balls Theme
+![SpaceBalls](assets/images/Space Balls/SpaceBallsTheme.png)
